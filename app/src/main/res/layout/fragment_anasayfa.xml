@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="anasayfaFragment" type="com.sahraer.yemeksiparisapp.fragment.AnasayfaFragment" />
+        <variable name="yemeklerAdapter" type="com.sahraer.yemeksiparisapp.adapter.YemeklerAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context=".fragment.AnasayfaFragment">
+
+
+        <ImageView
+            android:id="@+id/shoppingIcon"
+            android:layout_width="46dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            android:onClick="@{() -> anasayfaFragment.shoppinIconTikla(shoppingIcon)}"
+            android:src="@drawable/ic_shopping_cart"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="403dp"
+            android:layout_height="657dp"
+            android:adapter="@{yemeklerAdapter}"
+            android:backgroundTint="@color/background"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoppingIcon"
+            app:spanCount="2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

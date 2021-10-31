@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable name="yemeksepetiNesnesi" type="com.sahraer.yemeksiparisapp.entity.Sepet" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="146dp"
+        android:background="@color/background">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="133dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/button_teal"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="138dp"
+                android:background="@color/button_teal"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewSepetIsim"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSepetIsim">
+
+
+                <TextView
+                    android:id="@+id/textViewSepetIsim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:text="@{yemeksepetiNesnesi.yemek_adi}"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewSepetResim"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewSepetFiyat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:text="@{ Integer.toString(yemeksepetiNesnesi.yemek_fiyat)+ `₺`}"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewSepetResim"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSepetIsim" />
+
+                <ImageView
+                    android:id="@+id/imageViewSepetResim"
+                    android:layout_width="100dp"
+                    android:layout_height="137dp"
+                    android:layout_marginStart="4dp"
+                    android:downloadurl="@{yemeksepetiNesnesi.yemek_resim_adi}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/textViewSepetSiparisAdet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:text='@{`Seçilen Adet : `+ yemeksepetiNesnesi.yemek_siparis_adet + " " }'
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewSepetResim" />
+
+                <TextView
+                    android:id="@+id/textViewtoplam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/lemon"
+                    android:text="Toplam"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewSilYemek"
+                    android:layout_width="34dp"
+                    android:layout_height="41dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="96dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_delete" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
